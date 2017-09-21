@@ -171,6 +171,19 @@ public:
                 }
             }
         }
+
+        void setFirst(LSNode<E>* pNode)
+        {
+            this->First = pNode;
+        }
+
+        SimpleList<E>* addList(SimpleList<E> *pList)
+        {
+            this->Last = pList->getFirst();
+            pList->setFirst(NULL);
+
+            return this;
+        }
 };
 
 #endif // SIMPLELIST_H

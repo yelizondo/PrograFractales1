@@ -2,6 +2,8 @@
 #include <QApplication>
 #include "fractal.h"
 #include "levyccurve.h"
+#include "simplelist.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -9,9 +11,29 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    LevyCCurve *f = new LevyCCurve();
+    SimpleList<char> *d = new SimpleList<char>();
 
-    f->generateList(4);
+    d->insertEnd('a');
+    d->insertEnd('b');
+    d->insertEnd('c');
+    d->insertEnd('d');
+
+
+    SimpleList<char> *f = new SimpleList<char>();
+
+    d->insertEnd('e');
+    d->insertEnd('f');
+    d->insertEnd('g');
+    d->insertEnd('h');
+
+    d = d->addList(f);
+    d->print();
+
+
+
+   // LevyCCurve *f = new LevyCCurve();
+
+   // f->generateList(4);
 
     return a.exec();
 }
