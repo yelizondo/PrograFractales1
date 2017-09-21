@@ -21,7 +21,7 @@ DibujoFrac::~DibujoFrac()
 void DibujoFrac::paintEvent(QPaintEvent *e){
 
     QPainter painter(this);
-
+    painter.setPen(Qt::green);
     painter.drawLines(lista);
 
 }
