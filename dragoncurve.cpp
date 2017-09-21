@@ -3,7 +3,7 @@
 
 DragonCurve::DragonCurve()
 {
-
+    
 }
 
 SimpleList<char> *DragonCurve::generateList(int pIterations)

@@ -1,5 +1,5 @@
 #include "sierpinskicurve.h"
-
+#include <simplelist.h>
 SierpinskiCurve::SierpinskiCurve()
 {
 
@@ -8,7 +8,7 @@ SierpinskiCurve::SierpinskiCurve()
 SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
 {
     SimpleList<char> *fractal = new SimpleList<char>();
-
+    /*
     int temporal = 0;
 
     SimpleList<char> *Ies = new SimpleList<char>();
@@ -19,5 +19,7 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
         if (fractal->isEmpty())
             cout << true;
 
-    }
+    }*/
+    return fractal;
 }
+
