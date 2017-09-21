@@ -200,7 +200,7 @@ public:
                 cout << "Empty List and Position != 0" << endl;
             else
                 if (pPos >= this->length())
-                    cout << "Position out of range." << endl;
+                    insertEnd(pValue);
             else
                 if (pPos == 0)
                     insertBeg(pValue);

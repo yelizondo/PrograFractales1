@@ -30,7 +30,7 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
             int pos = 0;
             int temporal = fractal->length();
 
-            while (temporal >= 0)
+            while (temporal-- >= 0)
             {
                 if (pos % 2 == 1)
                 {
@@ -49,7 +49,7 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
                 else
                 {
                     cout << "NO FUNCIONA 1" << endl;
-                    temporal--;
+
                 }
             }
         }
@@ -58,7 +58,7 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
             int soap = 0;
             int temporal = fractal->length();
 
-            while (temporal >= 0)
+            while (temporal-- >= 0)
             {
                 if (soap % 2 == 1)
                 {
@@ -77,7 +77,6 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
                 else
                 {
                     cout << "No funciona 2" << endl;
-                    temporal--;
                 }
             }
         }
@@ -86,6 +85,7 @@ SimpleList<char> *SierpinskiCurve::generateList(int pIterations)
             cout << "No funciona" << endl;
         }
         contador += 1;
+        cout << contador << endl;
     }
     fractal->print();
     return fractal;

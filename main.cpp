@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     //w.show();
 
     SierpinskiCurve *d = new SierpinskiCurve();
-    d->generateList(1);
+    d->generateList(30);
 
 
 
