@@ -2,8 +2,10 @@
 
 Fractal::Fractal()
 {
-    this->tempPoint.setX(90);
-    this->tempPoint.setX(90);
+    this->tempPoint.setX(30);
+    this->tempPoint.setY(30);
+    this->tempPointB.setX(50);
+    this->tempPointB.setY(30);
 }
 
 QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList)
@@ -14,6 +16,14 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
     {
         case 'D': // Dragon Curve
 
+            for (int i = 0; i < pList->length(); i++)
+            {
+                if (pList->getPos(i)->getValue() == 'I') {
+                    res.append(addLine(90)); cout << 'I' << endl;}
+                else
+                    if (pList->getPos(i)->getValue() == 'D') {
+                        res.append(addLine(90)); cout << 'D' << endl;}
+            }
 
             break;
 
@@ -30,22 +40,6 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
         default:
             break;
     }
-    /*
-    QVector<QLineF> res;
-    QLineF l1;
-    QLineF l2;
-    QLineF l3;
-    QLineF l4;
-    l1.setLine(50,50,100,100);
-    l1.setAngle(-45);
-    l2.setLine(l1.p2().rx(),l1.p2().ry(),400,350);
-    l3.setLine(l2.p2().rx(),l2.p2().ry(),323,259);
-    l4.setLine(l3.p2().rx(),l3.p2().ry(),523,123);
-    res.append(l1);
-    res.append(l2);
-    res.append(l3);
-    res.append(l4);
-    */
 
     return res;
 }
@@ -54,7 +48,13 @@ QLineF Fractal::addLine(int pAngle)
 {
     QLineF res;
 
+    res.setLine(tempPoint.rx(), tempPoint.ry(), tempPointB.rx(), tempPointB.ry());
+    res.setAngle(pAngle);
+    this->tempPoint.setX(tempPointB.rx());
+    this->tempPoint.setY(tempPointB.ry());
 
+    this->tempPointB.setX(res.p2().rx());
+    this->tempPointB.setY(res.p2().ry());
 
     return res;
 }
