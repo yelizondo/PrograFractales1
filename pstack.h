@@ -80,6 +80,13 @@ class PStack
             cout << '"' << endl;
         }
 
+        bool isEmpty()
+        {
+            if (top == NULL)
+                return true;
+            return false;
+        }
+
     private:
         StackNode<E> *top;
         int length;

@@ -26,7 +26,6 @@ SimpleList<char> *DragonCurve::generateList(int pIterations)
         SimpleList<char> * res = new SimpleList<char>;
 
         res = res->concatenarListas(c,'I',i);
-        res->print();
         return res;
     }
 }

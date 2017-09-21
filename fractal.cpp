@@ -1,11 +1,18 @@
 #include "fractal.h"
 
+Fractal::Fractal()
+{
+    this->tempPoint.setX(90);
+    this->tempPoint.setX(90);
+}
+
 QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList)
-{/*
+{
+    QVector<QLineF> res; // Lineas a dibujar
+
     switch (pFractal)
     {
         case 'D': // Dragon Curve
-
 
 
             break;
@@ -22,8 +29,8 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
 
         default:
             break;
-    }*/
-
+    }
+    /*
     QVector<QLineF> res;
     QLineF l1;
     QLineF l2;
@@ -38,6 +45,16 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
     res.append(l2);
     res.append(l3);
     res.append(l4);
-    return res;
+    */
 
+    return res;
+}
+
+QLineF Fractal::addLine(int pAngle)
+{
+    QLineF res;
+
+
+
+    return res;
 }

@@ -132,9 +132,11 @@ public:
         SimpleList<E> *invertir()
         {
             PStack<LSNode<E>*> *stack = new PStack<LSNode<E>*>();
+
             SimpleList<E> *res = new SimpleList<E>();
 
             LSNode<E>* temp = First;
+
 
             while (temp != NULL)
             {
@@ -142,7 +144,7 @@ public:
                 temp = temp->getNext();
             }
 
-            for (int i = 0; i < stack->len(); i++)
+            for (int i = 0; !stack->isEmpty(); i++)
             {
                 res->insertEnd(stack->pop()->getValue()->getValue());
             }
