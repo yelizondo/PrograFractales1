@@ -15,12 +15,17 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
     int inicioX=750;
     int inicioY=450;
     int angulo=0;
-    line1.setLine(inicioX,inicioY,inicioX+5,inicioY);
+
 
     switch (pFractal)
     {
 
         case 'D': // Dragon Curve
+
+            inicioX = 750;
+            inicioY = 225;
+            angulo = 0;
+            line1.setLine(inicioX,inicioY,inicioX+5,inicioY);
 
             for (int i = 0; i < pList->length(); i++)
             {
@@ -37,35 +42,41 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
                         res.append(line1);
 
                     }
-                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+3,line1.p2().ry());
+                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+5,line1.p2().ry());
                 line1=line2;
             }
 
             break;
 
         case 'L': // LevyC Curve
-        for (int i = 0; i < pList->length(); i++)
-        {
-            if (pList->getPos(i)->getValue() == 'I') {
-                angulo=angulo+45;
-                line1.setAngle(angulo);
 
+            inicioX = 375;
+            inicioY = 225;
+            angulo = 0;
+            line1.setLine(inicioX,inicioY,inicioX+8,inicioY);
 
-            }
-            else
-                if (pList->getPos(i)->getValue() == 'D') {
-                    angulo=angulo-45;
+            for (int i = 0; i < pList->length(); i++)
+            {
+                if (pList->getPos(i)->getValue() == 'I') {
+                    angulo=angulo+45;
                     line1.setAngle(angulo);
 
 
                 }
-                else{
-                    res.append(line1);
-                    line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+8,line1.p2().ry());
-                    line1=line2;
-                }
+                else
+                    if (pList->getPos(i)->getValue() == 'D') {
+                        angulo=angulo-45;
+                        line1.setAngle(angulo);
 
-        }
+
+                    }
+                    else{
+                        res.append(line1);
+                        line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+8,line1.p2().ry());
+                        line1=line2;
+                    }
+
+            }
 
 
 
@@ -73,24 +84,29 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
 
         case 'S': // Sierpinski Curve
 
-        for (int i = 0; i < pList->length(); i++)
-        {
-                if (pList->getPos(i)->getValue() == 'I') {
-                    angulo=angulo+60;
-                    line1.setAngle(angulo);
-                    res.append(line1);
+            inicioX = 750;
+            inicioY = 450;
+            angulo = 0;
+            line1.setLine(inicioX,inicioY,inicioX+2,inicioY);
 
-                }
-                else
-                    if (pList->getPos(i)->getValue() == 'D') {
-                        angulo=angulo-60;
+            for (int i = 0; i < pList->length(); i++)
+            {
+                    if (pList->getPos(i)->getValue() == 'I') {
+                        angulo=angulo+60;
                         line1.setAngle(angulo);
                         res.append(line1);
 
                     }
-                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+5,line1.p2().ry());
-                line1=line2;
-         }
+                    else
+                        if (pList->getPos(i)->getValue() == 'D') {
+                            angulo=angulo-60;
+                            line1.setAngle(angulo);
+                            res.append(line1);
+
+                        }
+                    line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+2,line1.p2().ry());
+                    line1=line2;
+             }
 
             break;
 
@@ -101,17 +117,3 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
     return res;
 }
 
-QLineF Fractal::addLine(int pAngle)
-{
-    QLineF res;
-
-    res.setLine(tempPoint.rx(), tempPoint.ry(), tempPointB.rx(), tempPointB.ry());
-    res.setAngle(pAngle);
-    this->tempPoint.setX(tempPointB.rx());
-    this->tempPoint.setY(tempPointB.ry());
-
-    this->tempPointB.setX(res.p2().rx());
-    this->tempPointB.setY(res.p2().ry());
-
-    return res;
-}

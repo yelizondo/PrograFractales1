@@ -10,7 +10,6 @@ class Fractal
     public:
         Fractal();
         QVector<QLineF> generateGraphics(char,SimpleList<char>*);
-        QLineF addLine(int);
     private:
         QPointF tempPoint;
         QPointF tempPointB;
