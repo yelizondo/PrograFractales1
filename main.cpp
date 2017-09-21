@@ -3,37 +3,20 @@
 #include "fractal.h"
 #include "levyccurve.h"
 #include "simplelist.h"
+#include "sierpinskicurve.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
+    //w.show();
 
-    SimpleList<char> *d = new SimpleList<char>();
-
-    d->insertEnd('a');
-    d->insertEnd('b');
-    d->insertEnd('c');
-    d->insertEnd('d');
-
-
-    SimpleList<char> *f = new SimpleList<char>();
-
-    d->insertEnd('e');
-    d->insertEnd('f');
-    d->insertEnd('g');
-    d->insertEnd('h');
-
-    d = d->addList(f);
-    d->print();
+    SierpinskiCurve *d = new SierpinskiCurve();
+    d->generateList(1);
 
 
 
-   // LevyCCurve *f = new LevyCCurve();
-
-   // f->generateList(4);
 
     return a.exec();
 }

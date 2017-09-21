@@ -21,13 +21,13 @@ public:
 
         bool isEmpty()
         {
-            First == NULL ? true : false;
+            if (First == NULL)
+                return true;
+            return false;
         }
 
         int length()
         {
-
-
              return this->Len;
             //public:
         }
@@ -157,8 +157,8 @@ public:
         LSNode<E>* getPos(int pPos)
         {
             int cont = 0;
-            if (First == NULL || pPos >= this->length())
-                return NULL;
+            if (First == NULL || pPos >= this->length()) {
+                return NULL; }
             else
             {
                 LSNode<E>* temp = First;
@@ -177,12 +177,39 @@ public:
             this->First = pNode;
         }
 
-        SimpleList<E>* addList(SimpleList<E> *pList)
+        void addList(SimpleList<E> *pList)
         {
-            this->Last = pList->getFirst();
-            pList->setFirst(NULL);
+            if (First == NULL)
+            {
+                First = pList->getFirst();
+                this->Len += pList->length();
+            }
+            else
+            {
+                this->Last = pList->getFirst();
+                pList->setFirst(NULL);
+                this->Len += pList->length();
+            }
+        }
 
-            return this;
+        void insertPos(int pPos, E pValue)
+        {
+            int cont = 0;
+
+            if (First == NULL && pPos != 0)
+                cout << "Empty List and Position != 0" << endl;
+            else
+                if (pPos >= this->length())
+                    cout << "Position out of range." << endl;
+            else
+                if (pPos == 0)
+                    insertBeg(pValue);
+            else
+            {
+                LSNode<E>* temp = new LSNode<E>(pValue);
+                temp->setNext(getPos(pPos));
+                getPos(pPos-1)->setNext(temp);
+            }
         }
 };
 
