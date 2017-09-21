@@ -12,10 +12,10 @@ int main(int argc, char *argv[])
     MainWindow w;
 
 
-    //w.show();
+    w.show();
 
-    SierpinskiCurve *d = new SierpinskiCurve();
-    d->generateList(30);
+    //SierpinskiCurve *d = new SierpinskiCurve();
+    //d->generateList(30);
 
 
 

@@ -5,14 +5,14 @@
 #include <fractal.h>
 #include <QVector>
 
-dibujofrac::dibujofrac(QWidget *parent) :
+DibujoFrac::DibujoFrac(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::dibujofrac)
+    ui(new Ui::DibujoFrac)
 {
     ui->setupUi(this);
 }
 
-dibujofrac::~dibujofrac()
+DibujoFrac::~DibujoFrac()
 {
     delete ui;
 }

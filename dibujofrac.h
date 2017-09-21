@@ -9,22 +9,21 @@
 #include <QLine>
 
 namespace Ui {
-class dibujofrac;
+class DibujoFrac;
 }
 
-class dibujofrac : public QWidget
+class DibujoFrac : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit dibujofrac(QWidget *parent = 0);
-    ~dibujofrac();
+    explicit DibujoFrac(QWidget *parent = 0);
+    ~DibujoFrac();
     QVector<QLineF> lista;
 protected:
-    void paintEvent(QPaintEvent *e);
-
+    void paintEvent(QPaintEvent* e);
 private:
-    Ui::dibujofrac *ui;
+    Ui::DibujoFrac *ui;
 };
 
 #endif // DIBUJOFRAC_H

@@ -30,7 +30,6 @@ SOURCES += \
     levyccurve.cpp \
     sierpinskicurve.cpp \
     fractal.cpp \
-    dibujofrac.cpp \
     dibujofrac.cpp
 
 HEADERS += \
@@ -43,7 +42,6 @@ HEADERS += \
     pstack.h \
     levyccurve.h \
     sierpinskicurve.h \
-    dibujofrac.h \
     dibujofrac.h
 
 FORMS += \
