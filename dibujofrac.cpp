@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fractal.h>
 #include <QVector>
+#include <unistd.h>
 
 DibujoFrac::DibujoFrac(QWidget *parent) :
     QWidget(parent),
@@ -20,6 +21,7 @@ DibujoFrac::~DibujoFrac()
 void DibujoFrac::paintEvent(QPaintEvent *e){
 
     QPainter painter(this);
+
     painter.drawLines(lista);
 
 }

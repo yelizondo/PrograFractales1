@@ -15,7 +15,7 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
     int inicioX=750;
     int inicioY=450;
     int angulo=0;
-    line1.setLine(inicioX,inicioY,inicioX+8,inicioY);
+    line1.setLine(inicioX,inicioY,inicioX+5,inicioY);
 
     switch (pFractal)
     {
@@ -72,9 +72,7 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
             break;
 
         case 'S': // Sierpinski Curve
-        res.append(line1);
-        line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+0.5,line1.p2().ry());
-        line1=line2;
+
         for (int i = 0; i < pList->length(); i++)
         {
                 if (pList->getPos(i)->getValue() == 'I') {
@@ -90,7 +88,7 @@ QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList
                         res.append(line1);
 
                     }
-                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+0.5,line1.p2().ry());
+                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+5,line1.p2().ry());
                 line1=line2;
          }
 
