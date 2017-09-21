@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <dibujofrac.h>
 
 namespace Ui {
 class MainWindow;
@@ -14,9 +15,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+private slots:
+    void on_dra_clicked();
+    void on_sier_clicked();
+    void on_levy_clicked();
 
 private:
     Ui::MainWindow *ui;
+    DibujoFrac ventana;
 };
 
 #endif // MAINWINDOW_H
