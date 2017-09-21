@@ -1,5 +1,5 @@
 #include "fractal.h"
-
+#include <QLine>;
 Fractal::Fractal()
 {
     this->tempPoint.setX(30);
@@ -11,18 +11,34 @@ Fractal::Fractal()
 QVector<QLineF> Fractal::generateGraphics(char pFractal, SimpleList<char> *pList)
 {
     QVector<QLineF> res; // Lineas a dibujar
+    QLineF line1,line2;
+    int inicioX=553;
+    int inicioY=344;
+    int angulo=0;
+    line1.setLine(inicioX,inicioY,inicioX+3,inicioY);
 
     switch (pFractal)
     {
+
         case 'D': // Dragon Curve
 
             for (int i = 0; i < pList->length(); i++)
             {
                 if (pList->getPos(i)->getValue() == 'I') {
-                    res.append(addLine(90)); cout << 'I' << endl;}
+                    angulo=angulo+90;
+                    line1.setAngle(angulo);
+                    res.append(line1);
+
+                }
                 else
                     if (pList->getPos(i)->getValue() == 'D') {
-                        res.append(addLine(90)); cout << 'D' << endl;}
+                        angulo=angulo-90;
+                        line1.setAngle(angulo);
+                        res.append(line1);
+
+                    }
+                line2.setLine(line1.p2().rx(),line1.p2().ry(),line1.p2().rx()+3,line1.p2().ry());
+                line1=line2;
             }
 
             break;
