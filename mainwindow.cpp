@@ -26,7 +26,7 @@ void MainWindow::on_dra_clicked()
 {
     Fractal frac;
     DragonCurve listaPi;
-    //ventana.lista=frac.generateGraphics('D',listaPi.generateList(ui->itera->value()));
+    ventana.lista=frac.generateGraphics('D',listaPi.generateList(ui->itera->value()));
     ventana.show();
 }
 
