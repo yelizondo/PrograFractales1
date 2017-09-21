@@ -28,7 +28,8 @@ SOURCES += \
         mainwindow.cpp \
     dragoncurve.cpp \
     levyccurve.cpp \
-    sierpinskicurve.cpp
+    sierpinskicurve.cpp \
+    graphicgenerator.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     stacknode.h \
     pstack.h \
     levyccurve.h \
-    sierpinskicurve.h
+    sierpinskicurve.h \
+    graphicgenerator.h
 
 FORMS += \
         mainwindow.ui
